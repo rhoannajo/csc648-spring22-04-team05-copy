@@ -18,10 +18,14 @@
 
 
 
-| Rhoanna Jo Perez | rperez12@mail.sfsu.edu | GitHub Username | Team Leader 
+| Rhoanna Jo Perez | rperez12@mail.sfsu.edu | GitHub Username | Team Leader
+
 | Jia Li | jli89@mail.sfsu.edu | michaelliftw | Front End Lead 
+
 | Christopher Su | csu2@mail.sfsu.edu| chrisquinn135 | Back End Lead 
+
 | Nelson Pang | npang1@mail.sfsu.edu | npang4 | Scrum Master 
+
 | Seongjung Kim | skim53@mail.sfsu.edu | seongjungkim1007 | Github Master 
 
 missing..
