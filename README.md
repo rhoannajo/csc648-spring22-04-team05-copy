@@ -28,9 +28,7 @@
 
 | Seongjung Kim | skim53@mail.sfsu.edu | seongjungkim1007 | Github Master 
 
-missing..
-
-| Michael Abolencia | sfsu email | GitHub Username | role
+| Michael Abolencia | mabolencia@mail.sfsu.edu | MichaelA-SFSU | front end
 
 
 
