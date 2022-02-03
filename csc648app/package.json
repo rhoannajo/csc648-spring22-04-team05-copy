@@ -15,7 +15,14 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "build-frontend": "docker build -f devops/frontend.Dockerfile -t frontend . && docker tag frontend chrisquinn/frontend && docker push chrisquinn/frontend",
+    "build-gateway": "docker build -f devops/gateway.Dockerfile -t gate . && docker tag gate chrisquinn/gate && docker push chrisquinn/gate",
+    "build-all-docker": "",
+    "deploy": "docker-compose -f devops/docker-compose.yml pull && docker stack deploy -c devops/docker-compose.yml about",
+    "stop": "docker stack remove about"
+
+
   },
   "eslintConfig": {
     "extends": [
