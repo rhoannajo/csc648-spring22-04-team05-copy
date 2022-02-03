@@ -1,4 +1,5 @@
 import logo from './logo.svg';
+import Chris from './components/chris/Chris';
 import './App.css';
 
 function App() {
