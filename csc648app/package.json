@@ -6,6 +6,7 @@
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^13.5.0",
+    "bootstrap": "^5.1.3",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "5.0.0",
@@ -21,8 +22,6 @@
     "build-all-docker": "",
     "deploy": "docker-compose -f devops/docker-compose.yml pull && docker stack deploy -c devops/docker-compose.yml about",
     "stop": "docker stack remove about"
-
-
   },
   "eslintConfig": {
     "extends": [
