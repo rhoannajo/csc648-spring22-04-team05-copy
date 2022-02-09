@@ -19,11 +19,11 @@ const Homepage = () => {
                 <div style={styleComp}>
                     <div>Rhoanna Jo Perez</div>
                     <div>Jia Liang Li</div>
-                    <div>Seongjung Kim</div>
                     <div>Nelson Pang</div>
                     <div>Michael Abolencia</div>
 
                     {/* Add a link to your component right here! */}
+                    <Link to='/kim' style={{ textDecoration: 'none', color: 'white', cursor: 'pointer' }}>Seongjung Kim</Link>
                     <Link to='/chris' style={{ textDecoration: 'none', color: 'white', cursor: 'pointer' }}>Christopher Su</Link>
                 </div>
 
