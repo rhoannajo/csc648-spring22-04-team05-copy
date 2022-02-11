@@ -17,7 +17,8 @@ const Homepage = () => {
                 <h2>Section 04</h2>
                 <h2>Team 5</h2>
                 <div style={styleComp}>
-                    <div>Rhoanna Jo Perez</div>
+                    <Link to='/rhoanna' style={{ textDecoration: 'none', color: 'white', cursor: 'pointer' }}>Rhoanna Jo Perez</Link>
+
                     <div>Jia Liang Li</div>
                     <div>Seongjung Kim</div>
                     <div>Michael Abolencia</div>
@@ -25,6 +26,8 @@ const Homepage = () => {
                     {/* Add a link to your component right here! */}
                     <Link to='/chris' style={{ textDecoration: 'none', color: 'white', cursor: 'pointer' }}>Christopher Su</Link>
                     <Link to='/nelson' style={{ textDecoration: 'none', color: 'white', cursor: 'pointer' }}>Nelson Pang</Link>
+                    {/* <Link to='/rhoanna' style={{ textDecoration: 'none', color: 'white', cursor: 'pointer' }}>Rhoanna Jo Perez</Link> */}
+
                 </div>
 
 
