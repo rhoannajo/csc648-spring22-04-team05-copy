@@ -5,11 +5,11 @@ import Logo from "./jia.png";
 
 function Jia() {
   return (
-    <div className="about">
+    <div className="mydes">
       <div className="coverphoto">
         <img src={Logo} alt="" />
       </div>
-      <div className="info">
+      <div className="myinfo">
         <p>Jia Li - FrontEnd Lead</p>
         <p>
           Hi guys! I'm Jia Li. I'm a senior at San Francisco University with a
@@ -47,3 +47,4 @@ function Jia() {
 }
 
 ReactDom.render(<Jia />, document.getElementById("root"));
+export default Jia;
