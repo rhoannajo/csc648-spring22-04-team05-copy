@@ -6,7 +6,7 @@ import './nelson.css'
 const Nelson = () => {
 
   return (
-    <div className='about'>
+    <div className='nelson-about'>
       <div className='info'>
         <div style={{ borderRadius: '50%', width: 185, height: 185, justifyItems: 'center', display: 'grid', alignItems: 'center' }}>
           <img src={nelson} style={{ width: 180, height: 200 }} />
