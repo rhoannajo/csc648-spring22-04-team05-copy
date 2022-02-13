@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import React from "react";
 import { Link } from "react-router-dom";
 
@@ -38,7 +37,6 @@ const Homepage = () => {
             Jia Liang Li
           </Link>
           <div>Seongjung Kim</div>
-          <div>Michael Abolencia</div>
 
           {/* Add a link to your component right here! */}
           <Link
@@ -61,7 +59,16 @@ const Homepage = () => {
           >
             Nelson Pang
           </Link>
-          {/* <Link to='/rhoanna' style={{ textDecoration: 'none', color: 'white', cursor: 'pointer' }}>Rhoanna Jo Perez</Link> */}
+          <Link 
+            to='/michael' 
+            style={{ 
+              textDecoration: 'none', 
+              color: 'white', 
+              cursor: 'pointer' }}
+            >
+              Michael Abolencia
+          </Link>
+
         </div>
       </header>
     </div>
@@ -69,43 +76,3 @@ const Homepage = () => {
 };
 
 export default Homepage;
-=======
-import React from 'react';
-import { Link } from 'react-router-dom';
-
-const Homepage = () => {
-
-    const styleComp = {
-        display: 'grid',
-        gridTemplateColumns: '1fr 1fr',
-        gridGap: '2em'
-    }
-
-    return (
-        <div>
-            <header className="App-header">
-                <h1>Software Engineering Class SFSU</h1>
-                <h2>Spring 2022</h2>
-                <h2>Section 04</h2>
-                <h2>Team 5</h2>
-                <div style={styleComp}>
-                    <div>Rhoanna Jo Perez</div>
-                    <div>Jia Liang Li</div>
-                    <div>Seongjung Kim</div>
-                    <div>Nelson Pang</div>
-
-                    {/* Add a link to your component right here! */}
-                    <Link to='/chris' style={{ textDecoration: 'none', color: 'white', cursor: 'pointer' }}>Christopher Su</Link>
-                    <Link to='/michael' style={{ textDecoration: 'none', color: 'white', cursor: 'pointer' }}>Michael Abolencia</Link>
-                </div>
-
-
-
-
-            </header>
-        </div>
-    )
-};
-
-export default Homepage;
->>>>>>> origin/Michael
