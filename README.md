@@ -18,7 +18,7 @@
 
 
 
-| Rhoanna Jo Perez | rperez12@mail.sfsu.edu | GitHub Username | Team Leader
+| Rhoanna Jo Perez | rperez12@mail.sfsu.edu | rhoannajo | Team Leader
 
 | Jia Li | jli89@mail.sfsu.edu | michaelliftw | Front End Lead 
 
