@@ -1,5 +1,5 @@
-.about {
-  background-color: lightblue !important;
+.nelson-about {
+  background-color: lightblue;
   display:grid;
   justify-items:center;
   grid-gap: 1em; 
@@ -29,7 +29,7 @@
 }
 
 .description {
-  color: black !important;
+  color: black;
   line-height: 3em;
   padding:3em;
   padding-top: 1em;
