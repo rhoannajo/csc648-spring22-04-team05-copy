@@ -6,6 +6,7 @@ import Homepage from "./components/Homepage";
 import { Routes, Route } from "react-router-dom";
 import Nelson from "./components/nelson/Nelson";
 import Jia from "./components/jia/jia";
+import Michael from './components/michael/michael';
 
 function App() {
   return (
@@ -17,7 +18,9 @@ function App() {
         <Route path="/nelson" element={<Nelson />} />
         <Route path="/rhoanna" element={<Rhoanna />} />
         <Route path="/jia" element={<Jia />} />
+        <Route path='/michael' element={<Michael />} />
       </Routes>
+
     </div>
   );
 }
