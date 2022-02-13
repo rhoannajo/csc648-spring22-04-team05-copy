@@ -36,7 +36,17 @@ const Homepage = () => {
           >
             Jia Liang Li
           </Link>
-          <div>Seongjung Kim</div>
+          <Link 
+            to='/kim' 
+            style={{ 
+                textDecoration: 'none', 
+                color: 'white', 
+                cursor: 'pointer' 
+                }}
+            >
+            Seongjung Kim
+        </Link>
+
 
           {/* Add a link to your component right here! */}
           <Link

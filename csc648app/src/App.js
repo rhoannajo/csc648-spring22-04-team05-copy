@@ -7,6 +7,7 @@ import { Routes, Route } from "react-router-dom";
 import Nelson from "./components/nelson/Nelson";
 import Jia from "./components/jia/jia";
 import Michael from './components/michael/michael';
+import Kim from './components/kim/Kim';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="/rhoanna" element={<Rhoanna />} />
         <Route path="/jia" element={<Jia />} />
         <Route path='/michael' element={<Michael />} />
+        <Route path='/kim' element={<Kim />} />
       </Routes>
 
     </div>
