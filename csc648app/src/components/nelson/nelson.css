@@ -1,60 +1,78 @@
-.Nelson {
-  display: grid;
-  grid-gap: 1em;
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  background-color: lightblue;
-  grid-template-columns: 1fr 1fr;
-  justify-items: center;
+.about {
+  background-color: lightblue !important;
+  display:grid;
+  justify-items:center;
+  grid-gap: 1em; 
+  height: 100vh;
 }
 
-.nelson-info{
-  padding-top: 15%;
-  margin-left: 35%;
- 
+.header-3 {
+  font-size:1.5em;
+  font-weight:600;
 }
 
-.nelson-header {
+.about::before {
+  content:'';
+  padding-top:2em;
+}
+
+.about::after {
+  content:'';
+  padding-bottom:4em;
+}
+
+
+.info {
+  margin-top:3em;
+  display:grid;
+  justify-items:center;
+}
+
+.description {
+  color: black !important;
+  line-height: 3em;
+  padding:3em;
+  padding-top: 1em;
   text-align: center;
-  padding-top: 5%;
- 
 }
 
-.nelson-image{
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
-  border-radius: 25px;
-}
-
-
-.nelson-description{
-  display: grid;
+.about-head {
+  color:black !important;
   text-align: center;
-  grid-column: 2 / 3;
-  margin-top: 15%;
-  font-size: 20px;
-  margin-right: 45%
+  padding-top:2em;
 }
 
-@media (min-width:650px){
-  .nelson-info{
-   
+
+@media (min-width:650px) {
+  .button-group {
+      grid-template-columns: 1fr 1fr;
+      grid-gap:5em
   }
-  
-  .nelson-header {
-   
-   
+
+  .about-head {
+      padding-top: 0;
+      text-align: left;
+      padding-left:2em;
   }
-  
-  
-  .nelson-image {
-   
-   
+
+  .description {
+      width:40em;
+      text-align: left;
   }
-  
-  .nelson-description{
-   padding-top: 7em;
-   padding-left: 1em;
-   text-align: left;
+
+  .info {
+      grid-template-columns: 1fr 1fr;
+      width:50em;
+      
+  }
+
+  .pro-tech {
+      grid-template-columns: 1fr 1fr;
+      width:50em;
+      padding:0;
+      
+  }
+  .heading {
+      text-align: left;
   }
 }

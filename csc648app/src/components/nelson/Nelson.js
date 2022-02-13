@@ -1,25 +1,26 @@
 import React from "react";
-import nelson from "./Nelson.jpg";
+import nelson from "./nelson.PNG"
 import './nelson.css'
 
 
 const Nelson = () => {
 
   return (
-    <div className="Nelson" >
-      <div className="nelson-info">
-        <h1 className="nelson-header"> Nelson Pang - Scrum Master</h1>
-
-        <img src={nelson} style={{ width: 225, height: 300 }} className="nelson-image" />
-      </div>
-      <div className="nelson-description">My name is Nelson. I am a computer science in my last year. I am the scrum master for
-        Team 5. I want to pursue software engineering as a frontend or
-        backend developer.
+    <div className='about'>
+      <div className='info'>
+        <div style={{ borderRadius: '50%', width: 185, height: 185, justifyItems: 'center', display: 'grid', alignItems: 'center' }}>
+          <img src={nelson} style={{ width: 180, height: 200 }} />
+        </div>
+        <div>
+          <div className='header-3 about-head'>Nelson Pang - Scrum Master</div>
+          <div className='description body'>My name is Nelson. I am a computer science in my last year. I am the scrum master for
+            Team 5. I want to pursue software engineering as a frontend or backend developer.</div>
+        </div>
       </div>
     </div>
   );
 }
 
-  ;
+;
 
 export default Nelson;
