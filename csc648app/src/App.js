@@ -5,7 +5,7 @@ import "./App.css";
 import Homepage from "./components/Homepage";
 import { Routes, Route } from "react-router-dom";
 import Nelson from "./components/nelson/Nelson";
-import Jia from "./components/jia/Jia";
+import Jia from "./components/jia/jia";
 
 function App() {
   return (

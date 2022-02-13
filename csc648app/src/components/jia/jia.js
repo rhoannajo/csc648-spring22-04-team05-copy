@@ -7,7 +7,7 @@ function Jia() {
   return (
     <div className="mydes">
       <div className="coverphoto">
-        <img src={Logo} alt="" />
+        <img className="img" src={Logo} alt="" />
       </div>
       <div className="myinfo">
         <p>Jia Li - FrontEnd Lead</p>
