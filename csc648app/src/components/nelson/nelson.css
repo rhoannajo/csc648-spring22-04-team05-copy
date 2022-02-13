@@ -1,4 +1,4 @@
-.nelson-about {
+.about {
   background-color: lightblue;
   display:grid;
   justify-items:center;
@@ -37,13 +37,13 @@
 }
 
 .about-head {
-  color:black !important;
+  color:black;
   text-align: center;
   padding-top:2em;
 }
 
 
-@media (min-width:650px) {
+@media (min-width:600px) {
   .button-group {
       grid-template-columns: 1fr 1fr;
       grid-gap:5em
