@@ -6,10 +6,10 @@ import './nelson.css'
 const Nelson = () => {
 
   return (
-    <div className='about'>
+    <div className='nelson-about'>
       <div className='info'>
-        <div style={{ borderRadius: '50%', width: 185, height: 185, justifyItems: 'center', display: 'grid', alignItems: 'center' }}>
-          <img src={nelson} style={{ width: 180, height: 200 }} />
+        <div style={{width: 185, height: 185, justifyItems: 'center', display: 'grid', alignItems: 'center' }}>
+          <img src={nelson} className="nelson-img" style={{borderRadius: 10, width: 180, height: 200 }} />
         </div>
         <div>
           <div className='header-3 about-head'>Nelson Pang - Scrum Master</div>

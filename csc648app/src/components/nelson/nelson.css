@@ -1,5 +1,5 @@
-.about {
-  background-color: lightblue;
+.nelson-about {
+  background-color: #008080;
   display:grid;
   justify-items:center;
   grid-gap: 1em; 
@@ -11,12 +11,12 @@
   font-weight:600;
 }
 
-.about::before {
+.nelson-about::before {
   content:'';
   padding-top:2em;
 }
 
-.about::after {
+.nelson-about::after {
   content:'';
   padding-bottom:4em;
 }
@@ -42,6 +42,9 @@
   padding-top:2em;
 }
 
+.nelson-img{
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 30px 90px;
+}
 
 @media (min-width:600px) {
   .button-group {
