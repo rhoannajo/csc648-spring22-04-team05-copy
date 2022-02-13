@@ -6,13 +6,12 @@
   height: 100%;
   background-color: lightblue;
   grid-template-columns: 1fr 1fr;
-  
   justify-items: center;
 }
 
 .nelson-info{
   padding-top: 15%;
-  margin-left: 15%;
+  margin-left: 35%;
  
 }
 
@@ -32,37 +31,30 @@
   display: grid;
   text-align: center;
   grid-column: 2 / 3;
-  padding-top: 25%;
-  width: 500px;
+  margin-top: 15%;
   font-size: 20px;
   margin-right: 45%
 }
 
 @media (min-width:650px){
   .nelson-info{
-    padding-top: 10%
+   
   }
   
   .nelson-header {
-    text-align: center;
-    padding-top: 5%;
+   
    
   }
   
   
   .nelson-image {
-    margin: auto;
-    padding-top: 2%;
-    display: block;
+   
    
   }
   
   .nelson-description{
-    display: grid;
-    text-align: center;
-    grid-column: 2 / 3;
-    padding-top: 25%;
-    width: 500px;
-   
+   padding-top: 7em;
+   padding-left: 1em;
+   text-align: left;
   }
 }
