@@ -35,14 +35,14 @@ const List = (props) => {
     };
 
     return (
-        
+
         <form className="todo-form" onSubmit={handleSubmit}>
             <button className="logout-btn" type="submit" onClick={(e) => handleLogout(e)}>
                 Logout
             </button>
+
             <input type="text" placeholder="Add a task" value={input} name="text" className="todo-input" onChange={handleChange} ref={inputRef}></input>
             <button className="todo-btn">Add task</button>
-            
         </form>
 
     )

@@ -11,8 +11,8 @@ import Kim from './components/kim/Kim';
 import Login from './components/login/Login';
 import { useSelector } from "react-redux";
 import { selectUser } from "./features/userSlice";
-
 import TodoList from "./components/to-do-list/TodoList";
+import Navbar from "./components/navbar/Navbar";
 
 
 
@@ -23,6 +23,7 @@ function App() {
   return (
     <div className="App">
       {/* Add your path to your component here */}
+      <Navbar/>
       <Routes>
         <Route path="/" element={<Homepage />} />
         <Route path="/chris" element={<Chris />} />
