@@ -74,6 +74,7 @@ client.connect(err => {
     })
 
     app.get('/api/users/getUsers', (req, res, next) => {
+        // test: equivalent to SELECT email, password FROM user-list WHERE name=chris
         db.collection('user-list').find({name: "chris"}, {projection: {_id: 0, email: 1, password: 1}}).toArray(function(err, result) {
             console.log(result)
             res.send(result)
