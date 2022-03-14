@@ -22,6 +22,7 @@ client.connect(err => {
     // app.use('/api/tasks',postTaskRoutes)
     // api call to get the task
 
+    
     app.get('/api/getTask', (req, res) => {
         console.log("BACKEND getTodoList: ")
 
@@ -35,6 +36,7 @@ client.connect(err => {
 
     });
 
+    //create data and store into our database
 app.post('/api/getTask',(req,res)=>{
     const post = db.collection('tasks').insertOne({
         title: req.body.title,
