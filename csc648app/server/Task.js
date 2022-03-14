@@ -33,7 +33,7 @@ client.connect(err => {
                 res.send(result)
             })
 
-    })
+    });
 
 app.post('/api/getTask',(req,res)=>{
     const post = db.collection('tasks').insertOne({
@@ -45,7 +45,7 @@ app.post('/api/getTask',(req,res)=>{
         priority: req.body.priority
     });
     post.then(data=>{
-        res.json(data.insertedId);
+        res.json(data.insertedId)
         console.log(data.insertedId+" data is created")
     })
     .catch(err=>{
@@ -54,7 +54,7 @@ app.post('/api/getTask',(req,res)=>{
     })
 })
 //delete task by priority ( only priority 1 can remain)
-app.get('/api/getTask/delete', (req, res)=> {
+app.get('/api/getTask/delete/priority', (req, res)=> {
 
 
          db.collection('tasks').deleteOne({priority: {$gt:1}})
@@ -64,6 +64,16 @@ app.get('/api/getTask/delete', (req, res)=> {
             res.redirect('/api/getTask')
         }).catch((err)=>console.log(err));
     
+});
+//delete task by id
+app.get('/api/getTask/delete/:_id', (req, res)=> {
+
+    db.collection('tasks').deleteOne({_id: new ObjectId(req.params._id)})
+   .then(()=>{
+       console.log("deleted task successfully");
+       res.redirect('/api/getTask')
+   }).catch((err)=>console.log(err));
+
 });
     app.listen(port);
     console.log(`Listening on port ${port}`);
