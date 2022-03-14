@@ -1,8 +1,6 @@
 const express = require('express')
 const router = express.Router();
 
-
-
 //   /api/tasks/getTask
 router.get('/getTask', (req, res)=>{
     try{
@@ -35,7 +33,7 @@ router.post('/getTask', (req,res)=>{
 //delete task by id  /api/tasks/delete/ <id>
 router.delete('/delete/:_id', (req, res)=> {
     try{
-        const removedTask =  db.collection('tasks').remove({_id: req.params._id});
+        const removedTask =  db.collection('tasks').remove({"_id": req.params._id});
         res.json(removedTask);
     }
     catch(err){

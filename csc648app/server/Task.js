@@ -25,8 +25,6 @@ client.connect(err => {
     app.get('/api/getTask', (req, res) => {
         console.log("BACKEND getTodoList: ")
 
-        // currently the search is hardcoded to match id 0, but should later be changed to match the specific todolist
-        //db.collection('todolist').aggregate([{ $match: { "id": 0 }}]).toArray(function (err, result) {
             // get the todolist id, then search the tasks for the todolist
             db.collection('tasks').aggregate([{ $match: { "todolistId": 0 }}]).toArray(function (err, result) {
 
@@ -34,7 +32,7 @@ client.connect(err => {
                 console.log(result)
                 res.send(result)
             })
-        //})
+
     })
 
 app.post('/api/getTask',(req,res)=>{
@@ -56,7 +54,7 @@ app.post('/api/getTask',(req,res)=>{
     })
 })
 //delete task by priority ( only priority 1 can remain)
-app.get('/api/getTask/delete/', (req, res)=> {
+app.get('/api/getTask/delete', (req, res)=> {
 
 
          db.collection('tasks').deleteOne({priority: {$gt:1}})
