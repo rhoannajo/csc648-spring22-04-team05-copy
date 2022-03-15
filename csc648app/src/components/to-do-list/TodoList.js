@@ -1,8 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { connect } from 'react-redux'
+import { setTodoList } from "../../redux/actions/todoActions";
+
 import List from "./List";
 import Todo from "./Todo";
 
-const TodoList = () => {
+const TodoList = (props) => {
     const [todos, setTodos] = useState([]);
 
     // Function to add a task 
@@ -35,16 +38,37 @@ const TodoList = () => {
         setTodos(removeArr);
     };
 
+    // on page load
+    useEffect(()=> {
+        if(props.todolist.length === 0) {
+            console.log("GETTING TASKS")
+            props.defaultTasks();
+        }
+    },[]);
 
 
     return (
         <div>
-            <h1> Add a task</h1>
+            <h1> Todo List</h1>
             <List onSubmit={addTodo} />
-            <Todo todos={todos} completeTodo={completeTodo} removeTodo={removeTodo}/>
+            {/* // also changed this */}
+            <Todo todos={props.todolist} completeTodo={completeTodo} removeTodo={removeTodo}/>
         </div>
     )
 
 }
 
-export default TodoList;
+
+// mapping state to props
+const mapStateToProps = (state) => {
+    return { todolist: state.todo.items }
+}
+
+// matching dispatch to props
+const mapDispatchToProps = (dispatch) => {
+    return {
+        defaultTasks: () => dispatch(setTodoList())
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(TodoList)

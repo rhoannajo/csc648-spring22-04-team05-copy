@@ -19,27 +19,31 @@ import Navbar from "./components/navbar/Navbar";
 function App() {
 
   const user = useSelector(selectUser);
- 
+
   return (
     <div className="App">
       {/* Add your path to your component here */}
-      <Navbar/>
+      <Navbar />
+
+
+
       <Routes>
         <Route path="/about" element={<Homepage />} />
+
         <Route path="/chris" element={<Chris />} />
         <Route path="/nelson" element={<Nelson />} />
         <Route path="/rhoanna" element={<Rhoanna />} />
         <Route path="/jia" element={<Jia />} />
         <Route path='/michael' element={<Michael />} />
         <Route path='/kim' element={<Kim />} />
-       
-       
+
+
       </Routes>
-      {user ? <TodoList/> : <Login/>}
-      
-      
-     
-     
+      {user ? <TodoList /> : <Login />}
+
+
+
+
     </div>
   );
 }
