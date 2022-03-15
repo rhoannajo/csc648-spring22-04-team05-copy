@@ -6,12 +6,15 @@
     "Lucida Sans", Arial, sans-serif;
 }
 
-
+.checkbox {
+  vertical-align: text-bottom;
+ 
+}
 
 h1 {
   margin: 32px 0;
   font-size: 24px;
-  padding-top: 10%;
+  padding-top: 7%;
 }
 
 .complete {
@@ -54,14 +57,6 @@ h1 {
   margin-left: 50%;
 }
 
-.todo-input.edit {
-  border: 2px solid #149fff;
-}
-
-.todo-button.edit {
-  padding: 16px 22px;
-}
-
 .todo-container {
   display: flex;
   flex-direction: row;
@@ -70,7 +65,7 @@ h1 {
 
 .todo-row {
   position: relative;
-  top: -125px;
+  top: -150px;
   display: flex;
   justify-content: space-between;
   align-items: center;

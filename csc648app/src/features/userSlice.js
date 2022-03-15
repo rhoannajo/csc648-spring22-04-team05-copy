@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+// Function to accept an initial state for our login and logout states
 export const userSlice = createSlice({
     name:'user',
     initialState:{

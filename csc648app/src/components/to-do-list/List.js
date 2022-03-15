@@ -4,6 +4,8 @@ import { logout } from "../../features/userSlice";
 import './List.css';
 
 const List = (props) => {
+
+    // Returns a reference to dispatch function from Redux
     const dispatch = useDispatch();
     const handleLogout = (e) => {
         e.preventDefault();
@@ -15,7 +17,7 @@ const List = (props) => {
     const inputRef = useRef(null);
 
     useEffect(() => {
-        inputRef.current.focus()
+        inputRef.current.focus();
     })
 
     const handleChange = (e) => {
@@ -25,6 +27,7 @@ const List = (props) => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
+        // Adding a task results in an id between 1 - 10000
         props.onSubmit({
             id: Math.floor(Math.random() * 10000),
             text: input
