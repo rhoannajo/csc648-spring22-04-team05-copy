@@ -25,13 +25,14 @@ function App() {
       {/* Add your path to your component here */}
       <Navbar/>
       <Routes>
-        <Route path="/" element={<Homepage />} />
+        <Route path="/about" element={<Homepage />} />
         <Route path="/chris" element={<Chris />} />
         <Route path="/nelson" element={<Nelson />} />
         <Route path="/rhoanna" element={<Rhoanna />} />
         <Route path="/jia" element={<Jia />} />
         <Route path='/michael' element={<Michael />} />
         <Route path='/kim' element={<Kim />} />
+       
        
       </Routes>
       {user ? <TodoList/> : <Login/>}

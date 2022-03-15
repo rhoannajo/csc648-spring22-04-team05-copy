@@ -79,17 +79,7 @@ const Homepage = () => {
               Michael Abolencia
           </Link>
 
-          <Link 
-            to='/login' 
-            style={{ 
-              textDecoration: 'none', 
-              color: 'white', 
-              cursor: 'pointer' }}
-            >
-              Login
-          </Link>
-          
-
+        
         </div>
       </header>
     </div>

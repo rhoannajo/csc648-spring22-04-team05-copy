@@ -1,7 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./navbar.css";
-
+import Homepage from "../Homepage";
+import { Routes, Route } from "react-router-dom";
 import OnTask from "./OnTask-Logo.png";
 import ProfileIcon from "./profileicon.png";
 
@@ -17,6 +18,9 @@ const Navbar = () => {
         </li>
         <li>
           <input type="text" placeholder="Search" className="search" />
+        </li>
+        <li>
+          <Link to="/about">About </Link>
         </li>
         <li>
           <Link to="/login" className="profileicon">
