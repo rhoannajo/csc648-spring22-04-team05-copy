@@ -24,7 +24,7 @@ function App() {
     <div className="App">
       {/* Add your path to your component here */}
       <Navbar/>
-      <Routes>
+      {/* <Routes>
         <Route path="/" element={<Homepage />} />
         <Route path="/chris" element={<Chris />} />
         <Route path="/nelson" element={<Nelson />} />
@@ -33,7 +33,7 @@ function App() {
         <Route path='/michael' element={<Michael />} />
         <Route path='/kim' element={<Kim />} />
        
-      </Routes>
+      </Routes> */}
       {user ? <TodoList/> : <Login/>}
       
       
