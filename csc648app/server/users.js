@@ -21,13 +21,14 @@ client.connect(err => {
         })
     }
 
-    UserModel.usernameExists = (name) => {
-        return db.collection('user-list').find({"name": name})
-    }
+    // commented out -- used for registration
+    // UserModel.usernameExists = (name) => {
+    //     return db.collection('user-list').find({"name": name})
+    // }
 
-    UserModel.emailExists = (email) => {
-        return db.collection('user-list').find({"email": email})
-    }
+    // UserModel.emailExists = (email) => {
+    //     return db.collection('user-list').find({"email": email})
+    // }
 
     UserModel.authenticate = (name, email, password) => {
         let userId;
@@ -42,44 +43,44 @@ client.connect(err => {
 
     app.post('/api/users/validateUser', (req, res, next) => {
         let name = req.body.name;
-        let email = req.body.email;
+        // let email = req.body.email;
         let password = req.body.password;
 
-        if (email.search(/@/) < 1 || email == "") {
-            console.log("Email not added")
+        if (name == "") {
+            console.log("Name left blank")
         }
 
-        if (password.length < 8 || password == "") {
-            console.log("Password not added")
+        if (password == "") {
+            console.log("Password left blank")
         }
 
-        UserModel.usernameExists(nameExists)
-        .then((nameDoesExist) => {
-            if (nameDoesExist) {
-                console.log("username already exists")
-            } else {
-                return UserModel.emailExists(email);
-            }
-        })
-        .then((emailDoesExist) => {
-            if (emailDoesExist) {
-                console.log("email already exists")
-            } else {
-                return UserModel.create(name, password, email);
-            }
-        })
-        .then(() => {
-            res.send(result)
-        })
+
+        UserModel.authenticate(name, password)
+            .then((loggedUserId) => {
+                if (loggedUserId > 0) {
+                    req.session.name = name;
+                    req.session.userid = loggedUserId; 
+                    res.redirect("/")
+                } else {
+                    console.log("error")
+                    res.redirect("/login") //replace with login path
+                }
+            })
+            .catch((err) => {
+                res.status(err.getStatus());
+                req.redirect("/") //should be login path
+            })
+
     })
 
-    app.get('/api/users/getUsers', (req, res, next) => {
-        // test: equivalent to SELECT email, password FROM user-list WHERE name=chris
-        db.collection('user-list').find({name: "chris"}, {projection: {_id: 0, email: 1, password: 1}}).toArray(function(err, result) {
-            console.log(result)
-            res.send(result)
-        })
-    })
+    //just a test
+    // app.get('/api/users/getUsers', (req, res, next) => {
+    //     // test: equivalent to SELECT email, password FROM user-list WHERE name=chris
+    //     db.collection('user-list').find({name: "chris"}, {projection: {_id: 0, email: 1, password: 1}}).toArray(function(err, result) {
+    //         console.log(result)
+    //         res.send(result)
+    //     })
+    // })
 
     app.listen(port);
     console.log(`Listening on port ${port}`);

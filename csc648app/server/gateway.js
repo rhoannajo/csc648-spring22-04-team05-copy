@@ -26,5 +26,11 @@ app.all('/api/todo*', (req, res) => {
   apiProxy.web(req, res, { target: todoHost });  
 });
 
+const usersHost = process.env.USERS_HOST || 'http://localhost:4003';    
+console.log(`todo end proxies to: ${usersHost}`);  
+app.all('/api/todo*', (req, res) => {         
+  apiProxy.web(req, res, { target: usersHost });  
+});
+
 appServer.listen(4000);
 console.log('Gateway started');
