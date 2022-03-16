@@ -6,10 +6,12 @@ export const userSlice = createSlice({
     initialState:{
         user: null,
     },
+    // Login takes state and action when logged in
     reducers:{
         login: (state, action) => {
             state.user = action.payload;
         },
+        // Sets user to null when logged out
         logout: (state) => {
             state.user = null;
         }

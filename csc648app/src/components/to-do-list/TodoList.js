@@ -10,6 +10,8 @@ const TodoList = (props) => {
 
     // Function to add a task 
     const addTodo = (todo) => {
+        
+        // Allows user to continue entering text if enter key is pressed in add task field
         if (!todo.text || /^\s*$/.test(todo.text)) {
             return;
         }

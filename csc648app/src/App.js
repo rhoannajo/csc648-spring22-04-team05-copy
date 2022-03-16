@@ -24,9 +24,7 @@ function App() {
     <div className="App">
       {/* Add your path to your component here */}
       <Navbar />
-
-
-
+      
       <Routes>
         <Route path="/about" element={<Homepage />} />
 
