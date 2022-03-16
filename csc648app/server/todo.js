@@ -15,7 +15,6 @@ client.connect(err => {
     const app = express();
 
     app.use(express.json());
-
     // api call to get the todolist
     app.get('/api/todo/getTodoList', (req, res) => {
         console.log("BACKEND getTodoList: ")
@@ -31,7 +30,6 @@ client.connect(err => {
             })
         })
     })
-
     app.listen(port);
     console.log(`Listening on port ${port}`);
 })
