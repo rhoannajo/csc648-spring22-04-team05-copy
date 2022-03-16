@@ -4,6 +4,12 @@ const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology:
 var bcrypt = require('bcrypt');
 const mongoose = require('mongoose');
 
+//FOR THE TEAM:
+//npm i express
+//npm i bcrypt
+//npm i mongoose
+//npm bodyParser
+
 client.connect(err => {
     const db = client.db('users')
 
@@ -17,7 +23,7 @@ client.connect(err => {
     app.use(bodyParser.json())
 
     app.get('/api/register', (req, res) => {
-        db.collection('userList').find({}, {projection: {_id: 1, name: 1, email: 1, password: 1}}).toArray(function(err, result) {
+        db.collection('user-list').find({}, {projection: {_id: 1, name: 1, email: 1, password: 1}}).toArray(function(err, result) {
             console.log(result)
             res.send(result)
         })
