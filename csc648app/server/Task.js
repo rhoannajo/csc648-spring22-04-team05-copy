@@ -37,7 +37,7 @@ client.connect(err => {
     });
 
     //create data and store into our database
-app.post('/api/getTask',(req,res)=>{
+app.post('/api/getTask/add',(req,res)=>{
     const post = db.collection('tasks').insertOne({
         title: req.body.title,
         complete: req.body.complete,
