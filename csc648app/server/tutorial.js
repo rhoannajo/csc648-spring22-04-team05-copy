@@ -26,10 +26,10 @@ client.connect(err => {
 
         // currently the search is hardcoded to match id 0, but should later be changed to match the specific todolist
         db.collection('todolist').aggregate([{ $match: { "id": 0 }}]).toArray(function (err, result) {
-            .find()
-            .insertOne()
-            .delete()
-            // send
+            // .find()
+            // .insertOne()
+            // .delete()
+            // // send
 
             console.log(result);
             res.send(result);
