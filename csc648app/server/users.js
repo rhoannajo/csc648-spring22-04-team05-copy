@@ -1,9 +1,8 @@
-const { MongoClient } = require('mongodb');
+const { MongoClient, ObjectId } = require('mongodb');
 const uri = "mongodb+srv://chris:hello123@cluster0.t2ipb.mongodb.net/todo-list?retryWrites=true&w=majority";
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
-var bcrypt = require('bcrypt')
-
-const UserModel = {};
+var bcrypt = require('bcrypt');
+const mongoose = require('mongoose');
 
 client.connect(err => {
     const db = client.db('users')
@@ -11,76 +10,71 @@ client.connect(err => {
     const port = process.env.PORT || 4003;
     const express = require('express');
     const app = express();
+    const bodyParser = require('body-parser');
+    const mongoose = require('mongoose');
     
     app.use(express.json());
+    app.use(bodyParser.json())
 
-    UserModel.create = (name, password, email) => {
-        return bcrypt.hash(password, 15)
-        .then((hashedPassword) => {
-            return db.collection('user-list').insertOne({name: name, email: email, password: hashedPassword })
+    app.get('/api/register', (req, res) => {
+        db.collection('userList').find({}, {projection: {_id: 1, name: 1, email: 1, password: 1}}).toArray(function(err, result) {
+            console.log(result)
+            res.send(result)
         })
-    }
+    })
 
-    // commented out -- used for registration
-    // UserModel.usernameExists = (name) => {
-    //     return db.collection('user-list').find({"name": name})
-    // }
-
-    // UserModel.emailExists = (email) => {
-    //     return db.collection('user-list').find({"email": email})
-    // }
-
-    UserModel.authenticate = (name, email, password) => {
-        let userId;
-        return db.collection('user-list').find({name: name}, {projection: {_id: 1, name: 1, email: 1, password: 1}})
-        .then(([results, fields]) => {
-            if (results && results.length == 1) {
-                userId = results[0].id;
-                return bcrypt.compare(password, results[0].password)
-            }
+    app.post('/api/register', (req, res) => {
+        bcrypt.hash(req.body.password, 10, function(err, hashedPass) {
+            if (err) {
+                res.json({
+                    error: err
+                })
+            } 
+            const user = db.collection('user-list').insertOne({
+                _id: new ObjectId(req.body._id),
+                name: req.body.name,
+                email: req.body.email,
+                password: hashedPass,
+                userid: req.body.userid,
+                friends: req.body.friends
+            });
+            user.then(data=>{
+                res.json({message:'successful'})
+            })
+            .catch(err=>{
+                res.json({message: err}) //send message if data is not saved
+        
+            })
         })
-    }
-
-    app.post('/api/users/validateUser', (req, res, next) => {
-        let name = req.body.name;
-        // let email = req.body.email;
-        let password = req.body.password;
-
-        if (name == "") {
-            console.log("Name left blank")
-        }
-
-        if (password == "") {
-            console.log("Password left blank")
-        }
-
-
-        UserModel.authenticate(name, password)
-            .then((loggedUserId) => {
-                if (loggedUserId > 0) {
-                    req.session.name = name;
-                    req.session.userid = loggedUserId; 
-                    res.redirect("/")
-                } else {
-                    console.log("error")
-                    res.redirect("/login") //replace with login path
-                }
-            })
-            .catch((err) => {
-                res.status(err.getStatus());
-                req.redirect("/") //should be login path
-            })
 
     })
 
-    //just a test
-    // app.get('/api/users/getUsers', (req, res, next) => {
-    //     // test: equivalent to SELECT email, password FROM user-list WHERE name=chris
-    //     db.collection('user-list').find({name: "chris"}, {projection: {_id: 0, email: 1, password: 1}}).toArray(function(err, result) {
-    //         console.log(result)
-    //         res.send(result)
-    //     })
-    // })
+    app.post('/api/login', (req, res, next) => {
+        let name = req.body.name;
+        let email = req.body.email;
+        let password = req.body.password;
+
+        db.collection('user-list').findOne({$or: [{name: name}, {email: email}]})
+        .then(user=> {
+            if (user) {
+                bcrypt.compare(password, user.password, function(err, result) {
+                    if (err) {
+                        res.json({error: err})
+                    }
+                    if (result) {
+                        res.json({message:'login works'})
+                        // res.redirect('/')
+                    } else {
+                        res.json({message: 'Password does not match'})
+                        // res.redirect('/api/login') //this should be the path to login
+                    }
+                })
+            } else {
+                res.json({message: 'no user found'})
+            }
+        })
+    })
+
 
     app.listen(port);
     console.log(`Listening on port ${port}`);
