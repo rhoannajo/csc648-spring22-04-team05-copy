@@ -8,26 +8,26 @@ import ProfileIcon from "./profileicon.png";
 
 const Navbar = () => {
   return (
-    <div>
-      <ul className="nav">
+    <div className="nav">
+      <div>
+        <Link to="/">
+          {" "}
+          <img src={OnTask} className="logo" />{" "}
+        </Link>
+      </div>
+      <div className="search_bar">
+        <input type="text" placeholder="Search" />
+      </div>
+      <ul>
         <li>
-          <Link to="/">
-            {" "}
-            <img src={OnTask} />{" "}
-          </Link>
-        </li>
-        <li>
-          <input type="text" placeholder="Search" className="search" />
-        </li>
-        <li>
-          <Link to="/about">About </Link>
-        </li>
-        <li>
-          <Link to="/login" className="profileicon">
-            <img src={ProfileIcon} />
-          </Link>
+          <Link to="/about">About</Link>
         </li>
       </ul>
+      <div>
+        <Link to="/login">
+          <img src={ProfileIcon} className="profileicon" />
+        </Link>
+      </div>
     </div>
   );
 };
