@@ -10,7 +10,7 @@ const Todo = ({ todos, completeTodo, removeTodo, updateTodo }) => {
         value: ''
     });
 
-    
+    // sets task id to null if removed from to do list
     const submitUpdate = (value) => {
         updateTodo(edit.id, value)
         setEdit({
