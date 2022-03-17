@@ -2,11 +2,11 @@
   "name": "csc648-spring22-04-team05",
   "version": "1.0.0",
   "description": "quit",
-  "main": "index.js",  
+  "main": "index.js",
   "proxy": "http://localhost:4000",
-
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.0",
+    "axios": "^0.26.1",
     "bootstrap": "^5.1.3",
     "react-redux": "^7.2.6",
     "react-router": "^6.2.1",

@@ -27,8 +27,8 @@ app.all('/api/todo*', (req, res) => {
 });
 
 const usersHost = process.env.USERS_HOST || 'http://localhost:4003';    
-console.log(`todo end proxies to: ${usersHost}`);  
-app.all('/api/todo*', (req, res) => {         
+console.log(`login end proxies to: ${usersHost}`);  
+app.all('/api/login*', (req, res) => {         
   apiProxy.web(req, res, { target: usersHost });  
 });
 

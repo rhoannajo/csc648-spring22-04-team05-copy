@@ -22,14 +22,14 @@ client.connect(err => {
     app.use(express.json());
     app.use(bodyParser.json())
 
-    app.get('/api/register', (req, res) => {
+    app.get('/api/login/register', (req, res) => {
         db.collection('user-list').find({}, {projection: {_id: 1, name: 1, email: 1, password: 1}}).toArray(function(err, result) {
             console.log(result)
             res.send(result)
         })
     })
 
-    app.post('/api/register', (req, res) => {
+    app.post('/api/login/register', (req, res) => {
         bcrypt.hash(req.body.password, 10, function(err, hashedPass) {
             if (err) {
                 res.json({
@@ -55,11 +55,11 @@ client.connect(err => {
 
     })
 
-    app.post('/api/login', (req, res, next) => {
+    app.post('/api/login/login', (req, res, next) => {
         let name = req.body.name;
         let email = req.body.email;
         let password = req.body.password;
-
+        console.log("LOGIN SUCCESSFUL");
         db.collection('user-list').findOne({$or: [{name: name}, {email: email}]})
         .then(user=> {
             if (user) {

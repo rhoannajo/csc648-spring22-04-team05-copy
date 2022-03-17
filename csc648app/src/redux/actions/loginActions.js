@@ -2,12 +2,14 @@ import axios from 'axios'
 
 
 const validateLogin = (email, password) => async dispatch => {
-    console.log("ACTION: RESETTING TO DEFAULT LIST")
+    console.log("ACTION: LOGIN");
+    console.log(email);
+    console.log(password);
     try {
 
         // call backend
-        const res = await axios.get(`/api/login?email=${email}&password=${password}`);
-        console.log("THIS WORKED")
+        const res = await axios.post(`/api/login/login?email=${email}&password=${password}`);
+        console.log("LOGIN WORKED");
         
         console.log(res.data)
         if(res.data){
@@ -24,7 +26,7 @@ const validateLogin = (email, password) => async dispatch => {
 
     }
     catch (e) {
-        console.log("THERE WAS AN ERROR")
+        console.log("LOGIN ERROR")
         console.log(e)
     }
 }
