@@ -49,10 +49,7 @@ const TodoList = (props) => {
         if(props.todolist.length === 0) {
             console.log("GETTING TASKS")
             props.defaultTasks();
-            setTimeout(() => {
-                console.log(props.todolist);
-                setTodos(props.todolist);
-            },1000);
+
             
         }
     },[]);
@@ -63,7 +60,7 @@ const TodoList = (props) => {
             <h1> Todo List</h1>
             <List onSubmit={addTodo} />
             {/* // also changed this */}
-            <Todo todos={todos} completeTodo={completeTodo} removeTodo={removeTodo}/>
+            {/* <Todo todos={todos} completeTodo={completeTodo} removeTodo={removeTodo}/> */}
 
             <Todo todos={props.todolist} completeTodo={completeTodo} removeTodo={removeTodo}/>
 
