@@ -1,0 +1,22 @@
+GET http://localhost:4003/api/register
+
+###
+POST http://localhost:4003/api/register
+Content-Type: application/json
+
+{
+    "name": "test5",
+    "email": "test5@mail.com",
+    "password": "test5",
+
+}
+
+
+###
+POST http://localhost:4003/api/login
+Content-Type: application/json
+
+{
+    "email": "test5@email.com",
+    "password": "test5"
+}

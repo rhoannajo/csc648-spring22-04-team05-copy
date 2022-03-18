@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { login } from "../../features/userSlice";
+import { validateLogin } from "../../redux/actions/loginActions";
 import './Login.css';
 
 const Login = () => {
@@ -12,10 +12,9 @@ const Login = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        dispatch(login({
-            name: username,
+        dispatch(validateLogin({
+            email: username,
             password: password,
-            loggedIn: true,
         }));
     }
     return (

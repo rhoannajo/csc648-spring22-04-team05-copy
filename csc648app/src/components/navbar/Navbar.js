@@ -1,8 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./navbar.css";
-import Homepage from "../Homepage";
-import { Routes, Route } from "react-router-dom";
 import OnTask from "./OnTask-Logo.png";
 import ProfileIcon from "./profileicon.png";
 
