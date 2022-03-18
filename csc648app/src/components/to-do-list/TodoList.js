@@ -17,7 +17,8 @@ const TodoList = (props) => {
         }
         console.log("CHICKED")
         const obj = {
-            title:todo.text
+            title:todo.text,
+            index:0
         }
         const newTodos = [obj, ...todos]
 
@@ -62,8 +63,9 @@ const TodoList = (props) => {
             <h1> Todo List</h1>
             <List onSubmit={addTodo} />
             {/* // also changed this */}
-            <Todo todos={props.todolist} completeTodo={completeTodo} removeTodo={removeTodo}/>
             <Todo todos={todos} completeTodo={completeTodo} removeTodo={removeTodo}/>
+
+            <Todo todos={props.todolist} completeTodo={completeTodo} removeTodo={removeTodo}/>
 
         </div>
     )
