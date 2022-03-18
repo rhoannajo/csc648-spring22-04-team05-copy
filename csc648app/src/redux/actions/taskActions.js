@@ -8,23 +8,21 @@ const setTask = (title/*, complete, _id, date,priority, todolistId*/) => async d
     try {
 
         // call backend
-        const res = await axios.get(`/api/getTasks/add`)
+        const res = await axios.get(`/api/getTasks/add?title=${title}`)
         console.log("THIS WORKED")
         console.log(res.data)
 
         
         console.log(res.data)
         if(res.data){
+            const res = await axios.get(`/api/todo/getTodoList`)
+            console.log("THIS WORKED")
+            console.log(res.data)
+
+            // call the reducer
             dispatch({
-                type: 'add',
-                payload://{ 
-                    //_id,
-                    title
-                    /*complete,
-                    todolistId,
-                    date,
-                    priority
-                  },*/
+                type: "SET_TODOLIST",
+                payload: res.data
             })
             
         }

@@ -55,30 +55,49 @@ client.connect(err => {
 
     })
 
-    app.post('/api/login/login', (req, res, next) => {
-        let name = req.body.name;
-        let email = req.body.email;
-        let password = req.body.password;
-        console.log("LOGIN SUCCESSFUL");
-        db.collection('user-list').findOne({$or: [{name: name}, {email: email}]})
-        .then(user=> {
-            if (user) {
-                bcrypt.compare(password, user.password, function(err, result) {
-                    if (err) {
-                        res.json({error: err})
-                    }
-                    if (result) {
-                        res.json({message:'login works'})
-                        // res.redirect('/')
-                    } else {
-                        res.json({message: 'Password does not match'})
-                        // res.redirect('/api/login') //this should be the path to login
-                    }
-                })
-            } else {
-                res.json({message: 'no user found'})
-            }
+    app.get('/api/login/login', (req, res, next) => {
+        let email = req.query.email;
+        let password = req.query.password;
+        console.log(email);
+        console.log(password);
+        db.collection('user-list')
+        .find({email:email})
+        .toArray()
+        .then((docs) => {
+            console.log(docs);
+            res.send("ACCEPT");
+            // if(docs && docs[0].password == password) {
+            //     console.log("SCUCESS")
+            //     return([password === docs[0].password,docs[0].name]);
+            // }
+            // else {
+                
+            //     return Promise.resolve(-1);
+            // }
         })
+        
+        
+        // findOne({$or: [{email: email}]})
+        // .then(user=> {
+        //     if (user) {
+        //         bcrypt.compare(password, user.password, function(err, result) {
+        //             if (err) {
+        //                 res.json({error: err})
+        //             }
+        //             if (result) {
+        //                 console.log("LOGIN SUCCESS");
+        //                 res.json({message:'login works'})
+        //                 // res.redirect('/')
+        //             } else {
+        //                 res.json({message: 'Password does not match'})
+        //                 // res.redirect('/api/login') //this should be the path to login
+        //             }
+        //         })
+        //     } else {
+        //         console.log(user);
+        //         res.json({message: 'no user found'})
+        //     }
+        // })
     })
 
 

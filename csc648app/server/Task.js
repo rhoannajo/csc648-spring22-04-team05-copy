@@ -23,7 +23,7 @@ client.connect(err => {
     // api call to get the task
 
     
-    app.get('/api/getTask', (req, res) => {
+    app.get('/api/getTask/return', (req, res) => {
         console.log("BACKEND getTodoList: ")
 
             // get the todolist id, then search the tasks for the todolist
@@ -37,7 +37,7 @@ client.connect(err => {
     });
 
     //create data and store into our database
-app.post('/api/getTask',(req,res)=>{
+app.post('/api/getTask/add',(req,res)=>{
     const post = db.collection('tasks').insertOne({
         title: req.body.title,
         complete: req.body.complete,

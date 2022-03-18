@@ -10,13 +10,16 @@ const TodoList = (props) => {
 
     // Function to add a task 
     const addTodo = (todo) => {
-        
+        console.log("CHICKED")
         // Allows user to continue entering text if enter key is pressed in add task field
         if (!todo.text || /^\s*$/.test(todo.text)) {
             return;
         }
-
-        const newTodos = [todo, ...todos]
+        console.log("CHICKED")
+        const obj = {
+            title:todo.text
+        }
+        const newTodos = [obj, ...todos]
 
         setTodos(newTodos)
 
@@ -45,6 +48,11 @@ const TodoList = (props) => {
         if(props.todolist.length === 0) {
             console.log("GETTING TASKS")
             props.defaultTasks();
+            setTimeout(() => {
+                console.log(props.todolist);
+                setTodos(props.todolist);
+            },1000);
+            
         }
     },[]);
 
@@ -55,6 +63,8 @@ const TodoList = (props) => {
             <List onSubmit={addTodo} />
             {/* // also changed this */}
             <Todo todos={props.todolist} completeTodo={completeTodo} removeTodo={removeTodo}/>
+            <Todo todos={todos} completeTodo={completeTodo} removeTodo={removeTodo}/>
+
         </div>
     )
 

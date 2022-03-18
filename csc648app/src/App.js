@@ -13,6 +13,9 @@ import { useSelector } from "react-redux";
 import { selectUser } from "./features/userSlice";
 import TodoList from "./components/to-do-list/TodoList";
 import Navbar from "./components/navbar/Navbar";
+import { connect } from 'react-redux'
+
+
 
 
 
@@ -34,10 +37,11 @@ function App() {
         <Route path="/jia" element={<Jia />} />
         <Route path='/michael' element={<Michael />} />
         <Route path='/kim' element={<Kim />} />
-
+        
 
       </Routes>
-      {user ? <TodoList /> : <Login />}
+      <TodoList />
+      {/* {user ? <TodoList /> : <Login />} */}
 
 
 
@@ -45,5 +49,7 @@ function App() {
     </div>
   );
 }
+
+
 
 export default App;

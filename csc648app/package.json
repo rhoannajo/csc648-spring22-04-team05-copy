@@ -24,6 +24,7 @@
     "react-router-dom": "^6.2.1",
     "react-scripts": "5.0.0",
     "redux": "^4.1.2",
+    "redux-thunk": "^2.4.1",
     "thunk": "^0.0.1",
     "web-vitals": "^2.1.4"
   },
@@ -34,6 +35,7 @@
     "eject": "react-scripts eject",
     "build-frontend": "docker build -f devops/frontend.Dockerfile -t frontend . && docker tag frontend chrisquinn/frontend && docker push chrisquinn/frontend",
     "build-gateway": "docker build -f devops/gateway.Dockerfile -t gate . && docker tag gate chrisquinn/gate && docker push chrisquinn/gate",
+    "build-todo": "docker build -f devops/todo.Dockerfile -t todo . && docker tag todo chrisquinn/todo && docker push chrisquinn/todo",
     "build-all-docker": "",
     "deploy": "docker-compose -f devops/docker-compose.yml pull && docker stack deploy -c devops/docker-compose.yml about",
     "stop": "docker stack remove about"
