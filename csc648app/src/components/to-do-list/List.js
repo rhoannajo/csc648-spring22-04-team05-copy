@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useDispatch } from "react-redux";
 import { logout } from "../../features/userSlice";
+import {setTask} from "../../redux/actions/taskActions";
 import './List.css';
 
 const List = (props) => {
@@ -11,6 +12,7 @@ const List = (props) => {
         e.preventDefault();
         dispatch(logout());
     }
+   
 
     const [input, setInput] = useState('');
 
@@ -30,9 +32,20 @@ const List = (props) => {
         // Adding a task results in an id between 1 - 10000
         props.onSubmit({
             id: Math.floor(Math.random() * 10000),
-            text: input
-        })
+            text: input,
+            
 
+        
+        })
+        dispatch(setTask({
+            title: input,
+            id: Math.floor(Math.random() * 10000),
+            complete: false,
+            todolistId: 0,
+            date: 0,
+            priority: 3
+        
+        }));
         setInput('')
 
     };
@@ -50,5 +63,6 @@ const List = (props) => {
 
     )
 }
+
 
 export default List;

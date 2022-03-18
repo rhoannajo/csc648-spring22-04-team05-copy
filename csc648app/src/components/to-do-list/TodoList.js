@@ -1,12 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { connect } from 'react-redux'
+import { useDispatch } from "react-redux";
 import { setTodoList } from "../../redux/actions/todoActions";
+import { deleteTask } from "../../redux/actions/deleteActions";
+import { setTask } from "../../redux/actions/taskActions";
 
 import List from "./List";
 import Todo from "./Todo";
 
 const TodoList = (props) => {
     const [todos, setTodos] = useState([]);
+    const dispatch = useDispatch();
 
     // Function to add a task 
     const addTodo = (todo) => {
@@ -15,11 +19,11 @@ const TodoList = (props) => {
         if (!todo.text || /^\s*$/.test(todo.text)) {
             return;
         }
-
+        
+        dispatch(setTask({todo}));
         const newTodos = [todo, ...todos]
-
         setTodos(newTodos)
-
+        
     };
 
     // Function to complete to task after clicking on it.

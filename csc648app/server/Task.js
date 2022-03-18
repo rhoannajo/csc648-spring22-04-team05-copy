@@ -5,6 +5,8 @@
 const { MongoClient, ObjectId } = require('mongodb');
 const uri = "mongodb+srv://chris:hello123@cluster0.t2ipb.mongodb.net/todo-list?retryWrites=true&w=majority";
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+var bcrypt = require('bcrypt');
+const mongoose = require('mongoose');
 
 // start of the task backend
 client.connect(err => {
@@ -14,6 +16,7 @@ client.connect(err => {
     const express = require('express');
     const app = express();
     const bodyParser = require('body-parser');
+    const mongoose = require('mongoose');
 
     app.use(express.json());
     app.use(bodyParser.json());
@@ -37,7 +40,7 @@ client.connect(err => {
     });
 
     //create data and store into our database
-app.post('/api/getTask',(req,res)=>{
+app.post('/api/getTask/add',(req,res)=>{
     const post = db.collection('tasks').insertOne({
         title: req.body.title,
         complete: req.body.complete,
