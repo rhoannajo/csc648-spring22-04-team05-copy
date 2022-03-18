@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { connect } from 'react-redux'
 import { useDispatch } from "react-redux";
 import { setTodoList } from "../../redux/actions/todoActions";
-import { deleteTask } from "../../redux/actions/deleteActions";
+import { deleteTask } from "../../redux/actions/taskActions";
 import { setTask } from "../../redux/actions/taskActions";
 
 import List from "./List";

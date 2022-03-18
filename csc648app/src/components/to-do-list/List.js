@@ -37,15 +37,7 @@ const List = (props) => {
 
         
         })
-        dispatch(setTask({
-            title: input,
-            id: Math.floor(Math.random() * 10000),
-            complete: false,
-            todolistId: 0,
-            date: 0,
-            priority: 3
-        
-        }));
+    
         setInput('')
 
     };

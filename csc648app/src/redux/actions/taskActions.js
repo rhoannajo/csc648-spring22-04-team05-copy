@@ -3,7 +3,8 @@ import axios from 'axios'
 
 
 const setTask = (title/*, complete, _id, date,priority, todolistId*/) => async dispatch => {
-    console.log("ACTION: RESETTING TO DEFAULT LIST")
+    console.log("ACTION: ADDING TASK")
+    console.log (title)
     try {
 
         // call backend
@@ -11,19 +12,19 @@ const setTask = (title/*, complete, _id, date,priority, todolistId*/) => async d
         console.log("THIS WORKED")
         console.log(res.data)
 
-        // call the reducer
+        
         console.log(res.data)
         if(res.data){
             dispatch({
                 type: 'add',
-                payload:{ 
+                payload://{ 
                     //_id,
-                    title,
+                    title
                     /*complete,
                     todolistId,
                     date,
-                    priority*/
-                  },
+                    priority
+                  },*/
             })
             
         }
