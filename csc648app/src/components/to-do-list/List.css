@@ -60,11 +60,9 @@ h1 {
 .todo-container {
   display: flex;
   flex-direction: row;
-  position: relative;
 }
 
 .todo-row {
-  position: relative;
   top: -150px;
   display: flex;
   justify-content: space-between;

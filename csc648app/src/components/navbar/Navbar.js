@@ -14,7 +14,6 @@ const Navbar = () => {
         </Link>
       </div>
       <div className="search_bar">
-        <input type="text" placeholder="Search" />
       </div>
       <ul>
         <li>

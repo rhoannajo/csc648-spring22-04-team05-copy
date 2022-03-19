@@ -17,7 +17,9 @@ import { connect } from 'react-redux'
 
 
 
+  // "proxy": "http://localhost:4000",
 
+  // ^^ IMPORTANT READDDDDDD
 
 function App() {
 

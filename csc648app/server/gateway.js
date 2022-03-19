@@ -12,12 +12,12 @@ apiProxy.on('error', (err, req, res) => {
 });
 
 // front end proxy
-const frontEndHost = process.env.FRONT_END_HOST || 'http://localhost:3000';
-console.log(`Front end proxies to: ${frontEndHost}`);
-app.all('/*', (req, res) => {
-  // for frontend
-  apiProxy.web(req, res, { target: frontEndHost });
-});
+// const frontEndHost = process.env.FRONT_END_HOST || 'http://localhost:3000';
+// console.log(`Front end proxies to: ${frontEndHost}`);
+// app.all('/*', (req, res) => {
+//   // for frontend
+//   apiProxy.web(req, res, { target: frontEndHost });
+// });
 
 // for todo!!
 const todoHost = process.env.TODO_HOST || 'http://localhost:4001';    

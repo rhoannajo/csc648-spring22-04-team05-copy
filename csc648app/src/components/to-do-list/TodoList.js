@@ -7,6 +7,7 @@ import Todo from "./Todo";
 
 const TodoList = (props) => {
     const [todos, setTodos] = useState([]);
+    const [search, setSearch] = useState([]);
 
     // Function to add a task 
     const addTodo = (todo) => {
@@ -58,11 +59,18 @@ const TodoList = (props) => {
     return (
         <div>
             <h1> Todo List</h1>
-            <List onSubmit={addTodo} />
+            <input type="text" placeholder="Search" style={{width:'300px'}} onChange={(event) => {
+                event.preventDefault();
+                setSearch(event.target.value)}}/>
+
+            {/* <List onSubmit={addTodo} /> */}
             {/* // also changed this */}
             {/* <Todo todos={todos} completeTodo={completeTodo} removeTodo={removeTodo}/> */}
+            <div>
+                {search ? <Todo todos={props.todolist.filter(todo => todo.title.includes(search))} completeTodo={completeTodo} removeTodo={removeTodo}/>: <Todo todos={props.todolist} completeTodo={completeTodo} removeTodo={removeTodo}/>}
+                
 
-            <Todo todos={props.todolist} completeTodo={completeTodo} removeTodo={removeTodo}/>
+            </div>    
 
         </div>
     )
